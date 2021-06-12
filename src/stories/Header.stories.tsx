@@ -8,9 +8,13 @@ export default {
 } as Meta
 
 const Template: Story = args => (
-  <Header {...args}>
-    <Score value={12} />
+  <Header>
+    <Score value={args.value} />
   </Header>
 )
 
 export const Default = Template.bind({})
+
+Default.args = {
+  value: 12,
+}

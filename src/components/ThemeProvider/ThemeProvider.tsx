@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 import {
   createGlobalStyle,
   ThemeProvider as StyledThemeProvider,
 } from 'styled-components'
 
 interface Props {
-  children: ReactNode
+  children: ReactElement
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,9 +23,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-size: 16px;
     font-family: var(--font);
-    color: ${({ theme }) => (theme as any).colors.white};
     font-weight: 600;
-    background: radial-gradient(circle at center, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    ${({ theme }) => `
+    color: ${(theme as any).colors.white};
+    background: radial-gradient(circle at center, ${
+      (theme as any).colors.prusianBlue
+    }, ${(theme as any).colors.spaceCadet});
+  `};
   }
 `
 
@@ -35,6 +39,8 @@ const theme = {
     grey: 'hsl(217, 16%, 45%)',
     white: '#ffffff',
     blue: 'hsl(229, 64%, 46%)',
+    prusianBlue: 'hsl(214, 47%, 23%)',
+    spaceCadet: 'hsl(237, 49%, 15%)',
   },
 }
 
