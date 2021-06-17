@@ -31,10 +31,15 @@ export const GlobalStyle = createGlobalStyle`
     }, ${(theme as any).colors.spaceCadet});
   `};
   }
+
+  p, h1 {
+    margin: 0;
+  }
 `
 
 const theme = {
   colors: {
+    black: '#000',
     dark: 'hsl(229, 25%, 31%)',
     grey: 'hsl(217, 16%, 45%)',
     white: '#ffffff',

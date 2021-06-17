@@ -48,7 +48,6 @@ const Rules: React.FC<Props> = ({ onClick }: Props) => {
   }
 
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <Button
       type="button"
       ref={ref as never}
