@@ -1,11 +1,15 @@
 import { Meta, Story } from '@storybook/react'
-import RulesModal from '../components/RulesModal/RulesModal'
+import RulesModal, { Props } from '../components/Rules/RulesModal/RulesModal'
 
 export default {
-  title: 'Components/RulesModal',
+  title: 'Components/Rules/RulesModal',
   component: RulesModal,
 } as Meta
 
-const Template: Story = args => <RulesModal {...args} />
+const Template: Story<Props> = args => <RulesModal {...args} />
 
 export const Default = Template.bind({})
+
+Default.args = {
+  show: false,
+}

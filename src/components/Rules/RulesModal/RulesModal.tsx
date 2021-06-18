@@ -1,9 +1,15 @@
 import { useEffect, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import styled from 'styled-components'
-import ImageRules from '../../assets/image-rules-bonus.svg'
-import IconClose from '../../assets/icon-close.svg'
+import ImageRules from '../../../assets/image-rules-bonus.svg'
+import IconClose from '../../../assets/icon-close.svg'
 
-const Modal = styled.div`
+export interface Props {
+  show: boolean
+  onClose: () => void
+}
+
+const Modal = styled.div<Pick<Props, 'show'>>`
   position: fixed;
   top: 0;
   right: 0;
@@ -13,6 +19,8 @@ const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: opacity 0.3s linear;
 `
 
 const Overlay = styled.div`
@@ -46,18 +54,18 @@ const ModalContent = styled.div`
   justify-content: center;
   align-content: space-evenly;
   margin: auto;
-  border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};
 
   @media only screen and (min-width: 768px) {
-    height: auto;
-    max-width: max-content;
-    padding: 32px;
     grid-template:
       'title close'
       'rules rules'
       'rules rules';
     row-gap: 1rem;
+    height: auto;
+    max-width: max-content;
+    border-radius: 8px;
+    padding: 32px;
   }
 `
 
@@ -125,12 +133,13 @@ const RulesImage = styled.img`
   grid-area: rules;
 `
 
-const RulesModal: React.FC = () => {
+const RulesModal: React.FC<Props> = ({ show, onClose }: Props) => {
   const modalRef = useRef() as React.MutableRefObject<HTMLDivElement>
 
   useEffect(() => {
     const focusTrap = (e: KeyboardEvent) => {
       const isTab = e.key === 'Tab' || e.keyCode === 9
+      const isEsc = e.key === 'Escape' || e.keyCode === 27
 
       if (isTab) {
         const focusableModalElements = modalRef.current.querySelectorAll(
@@ -151,6 +160,8 @@ const RulesModal: React.FC = () => {
           e.preventDefault()
           return undefined
         }
+      } else if (isEsc) {
+        onClose()
       }
 
       return undefined
@@ -158,24 +169,29 @@ const RulesModal: React.FC = () => {
     document.addEventListener('keydown', focusTrap)
 
     return () => document.removeEventListener('keydown', focusTrap)
-  }, [modalRef])
+  }, [modalRef, onClose])
 
-  return (
-    <Modal role="dialog">
-      <Overlay />
-      <ModalDialog>
-        <ModalContent ref={modalRef}>
-          <TitleContainer>
-            <Title>RULES</Title>
-          </TitleContainer>
-          <RulesImage alt="Rules of the game" src={ImageRules} />
-          <CloseIconButton aria-label="Close dialog">
-            <img alt="" src={IconClose} />
-          </CloseIconButton>
-        </ModalContent>
-      </ModalDialog>
-    </Modal>
-  )
+  const modalRoot = document.getElementById('modal-root') as HTMLElement
+
+  return show
+    ? ReactDOM.createPortal(
+        <Modal role="dialog" show>
+          <Overlay />
+          <ModalDialog>
+            <ModalContent ref={modalRef}>
+              <TitleContainer>
+                <Title>RULES</Title>
+              </TitleContainer>
+              <RulesImage alt="Rules of the game" src={ImageRules} />
+              <CloseIconButton aria-label="Close dialog" onClick={onClose}>
+                <img alt="" src={IconClose} />
+              </CloseIconButton>
+            </ModalContent>
+          </ModalDialog>
+        </Modal>,
+        modalRoot,
+      )
+    : null
 }
 
 export default RulesModal
