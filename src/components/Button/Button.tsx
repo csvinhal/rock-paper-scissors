@@ -7,9 +7,8 @@ import {
 import styled from 'styled-components'
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children:
-    | (ReactNode & ReactElement<any, string | JSXElementConstructor<any>>)
-    | string
+  children: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (ReactNode & ReactElement<any, string | JSXElementConstructor<any>>) | string
   modifier?: 'solid' | 'outlined' | 'ghost'
 }
 
