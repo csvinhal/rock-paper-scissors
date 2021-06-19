@@ -1,8 +1,8 @@
-import { useRef, useEffect, ReactNode } from 'react'
+import { useRef, useEffect, ReactNode, HTMLAttributes } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
-export interface Props {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   show: boolean
   children: ReactNode
   onClose: () => void
@@ -54,7 +54,7 @@ const ModalContent = styled.div`
   }
 `
 
-const Modal: React.FC<Props> = ({ children, show }: Props) => {
+const Modal: React.FC<Props> = ({ children, show, ...props }: Props) => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const Modal: React.FC<Props> = ({ children, show }: Props) => {
 
   return show
     ? ReactDOM.createPortal(
-        <StyledModal role="dialog" show>
+        <StyledModal role="dialog" show aria-modal {...props}>
           <Overlay />
           <ModalDialog>
             <ModalContent ref={modalRef}>{children}</ModalContent>

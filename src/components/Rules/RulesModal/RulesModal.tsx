@@ -97,10 +97,22 @@ const RulesModal: React.FC<Props> = ({ show, onClose }: Props) => {
   }, [firstElementRef])
 
   return (
-    <Modal show={show} onClose={onClose}>
+    <Modal
+      show={show}
+      onClose={onClose}
+      aria-labelledby="rules_label"
+      aria-describedby="rules_desc"
+    >
       <StyledRuleModal>
         <TitleContainer>
-          <Title>RULES</Title>
+          <Title id="rules_label">RULES</Title>
+          <div id="rules_desc" style={{ display: 'none' }}>
+            <p>Rock beats Lizzard and Scissor</p>
+            <p>Paper beats Rock and Spock</p>
+            <p>Scissor beats Paper and Lizzard</p>
+            <p>Lizzard beats Spock and Paper</p>
+            <p>Spock beats Scissor and Rock</p>
+          </div>
         </TitleContainer>
         <RulesImage alt="Rules of the game" src={ImageRules} />
         <CloseIconButton
