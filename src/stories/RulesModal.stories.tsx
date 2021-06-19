@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react'
 import RulesModal, { Props } from '../components/Rules/RulesModal/RulesModal'
 
 export default {
-  title: 'Components/Rules/RulesModal',
+  title: 'Components/Molecules/RulesModal',
   component: RulesModal,
 } as Meta
 

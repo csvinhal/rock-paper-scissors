@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react'
 import Rules from '../components/Rules/Rules'
 
 export default {
-  title: 'Components/Rules',
+  title: 'Components/Organism/Rules',
   component: Rules,
 } as Meta
 

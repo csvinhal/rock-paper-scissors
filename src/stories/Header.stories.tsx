@@ -3,7 +3,7 @@ import Header from '../components/Header/Header'
 import Score from '../components/Score/Score'
 
 export default {
-  title: 'Components/Header',
+  title: 'Components/Organism/Header',
   component: Header,
 } as Meta
 

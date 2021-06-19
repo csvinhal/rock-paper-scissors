@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Score, { Props } from '../components/Score/Score'
 
 export default {
-  title: 'Components/Score',
+  title: 'Components/Atomic/Score',
   component: Score,
 } as Meta
 
