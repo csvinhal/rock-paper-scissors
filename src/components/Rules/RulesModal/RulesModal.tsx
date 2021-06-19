@@ -1,51 +1,12 @@
 import { useEffect, useRef } from 'react'
-import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import ImageRules from '../../../assets/image-rules-bonus.svg'
 import IconClose from '../../../assets/icon-close.svg'
+import Button from '../../Button/Button'
+import Modal from '../../Modal/Modal'
 
-export interface Props {
-  show: boolean
-  onClose: () => void
-}
-
-const Modal = styled.div<Pick<Props, 'show'>>`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  width: 100%;
+const StyledRuleModal = styled.div`
   height: 100%;
-  z-index: 1;
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: opacity 0.3s linear;
-`
-
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0.5;
-  background-color: ${({ theme }) => theme.colors.black};
-`
-
-const ModalDialog = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-`
-
-const ModalContent = styled.div`
-  height: 100%;
-  width: 100%;
-  position: relative;
   display: grid;
   grid-template-areas:
     'title title'
@@ -53,8 +14,6 @@ const ModalContent = styled.div`
     'close close';
   justify-content: center;
   align-content: space-evenly;
-  margin: auto;
-  background-color: ${({ theme }) => theme.colors.white};
 
   @media only screen and (min-width: 768px) {
     grid-template:
@@ -62,8 +21,6 @@ const ModalContent = styled.div`
       'rules rules'
       'rules rules';
     row-gap: 1rem;
-    height: auto;
-    max-width: max-content;
     border-radius: 8px;
     padding: 32px;
   }
@@ -90,7 +47,7 @@ const Title = styled.h1`
   }
 `
 
-const CloseIconButton = styled.button`
+const CloseIconButton = styled(Button)`
   grid-area: close;
   display: flex;
   justify-content: center;
@@ -98,19 +55,9 @@ const CloseIconButton = styled.button`
   max-width: 2.375rem;
   max-height: 2.375rem;
   justify-self: center;
-  padding: 0.5rem;
-  background-color: transparent;
   border-radius: 4px;
-  cursor: pointer;
-  ${({ theme }) => `
-  color: ${theme.colors.white};
-  border: 1px solid ${theme.colors.white};
-  `};
-  transition: 0.3s easy;
-  transition-property: background-color, box-shadow;
   ${({ theme }) => `
   :focus {
-    outline: none;
     border-color: ${theme.colors.grey};
   }
   
@@ -133,65 +80,40 @@ const RulesImage = styled.img`
   grid-area: rules;
 `
 
+interface Props {
+  show: boolean
+  onClose: () => void
+}
+
 const RulesModal: React.FC<Props> = ({ show, onClose }: Props) => {
-  const modalRef = useRef() as React.MutableRefObject<HTMLDivElement>
+  const firstElementRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const focusTrap = (e: KeyboardEvent) => {
-      const isTab = e.key === 'Tab' || e.keyCode === 9
-      const isEsc = e.key === 'Escape' || e.keyCode === 27
-
-      if (isTab) {
-        const focusableModalElements = modalRef.current.querySelectorAll(
-          'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], audio[controls], video[controls], summary, [tabindex^="0"], [tabindex^="1"], [tabindex^="2"], [tabindex^="3"], [tabindex^="4"], [tabindex^="5"], [tabindex^="6"], [tabindex^="7"], [tabindex^="8"], [tabindex^="9"]',
-        )
-        const firstElement = focusableModalElements[0]
-        const lastElement =
-          focusableModalElements[focusableModalElements.length - 1]
-
-        if (e.shiftKey && document.activeElement === firstElement) {
-          ;(lastElement as HTMLElement).focus()
-          e.preventDefault()
-          return undefined
-        }
-
-        if (!e.shiftKey && document.activeElement === lastElement) {
-          ;(firstElement as HTMLElement).focus()
-          e.preventDefault()
-          return undefined
-        }
-      } else if (isEsc) {
-        onClose()
-      }
-
-      return undefined
+    const activeElement = document.activeElement as HTMLElement
+    firstElementRef.current?.focus()
+    return () => {
+      activeElement.focus()
     }
-    document.addEventListener('keydown', focusTrap)
+  }, [firstElementRef])
 
-    return () => document.removeEventListener('keydown', focusTrap)
-  }, [modalRef, onClose])
-
-  const modalRoot = document.getElementById('modal-root') as HTMLElement
-
-  return show
-    ? ReactDOM.createPortal(
-        <Modal role="dialog" show>
-          <Overlay />
-          <ModalDialog>
-            <ModalContent ref={modalRef}>
-              <TitleContainer>
-                <Title>RULES</Title>
-              </TitleContainer>
-              <RulesImage alt="Rules of the game" src={ImageRules} />
-              <CloseIconButton aria-label="Close dialog" onClick={onClose}>
-                <img alt="" src={IconClose} />
-              </CloseIconButton>
-            </ModalContent>
-          </ModalDialog>
-        </Modal>,
-        modalRoot,
-      )
-    : null
+  return (
+    <Modal show={show} onClose={onClose}>
+      <StyledRuleModal>
+        <TitleContainer>
+          <Title>RULES</Title>
+        </TitleContainer>
+        <RulesImage alt="Rules of the game" src={ImageRules} />
+        <CloseIconButton
+          aria-label="Close dialog"
+          modifier="ghost"
+          onClick={onClose}
+          ref={firstElementRef}
+        >
+          <img alt="" src={IconClose} />
+        </CloseIconButton>
+      </StyledRuleModal>
+    </Modal>
+  )
 }
 
 export default RulesModal

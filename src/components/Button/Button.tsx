@@ -3,6 +3,8 @@ import {
   ButtonHTMLAttributes,
   ReactNode,
   JSXElementConstructor,
+  forwardRef,
+  RefAttributes,
 } from 'react'
 import styled from 'styled-components'
 
@@ -93,17 +95,18 @@ const StyledButton = styled.button<Props>`
   }};
 `
 
-const Button: React.FC<Props> = ({
-  children,
-  modifier = 'solid',
-  type = 'button',
-  ...buttonProps
-}: Props) => {
-  return (
-    <StyledButton type={type} modifier={modifier} {...buttonProps}>
-      {children}
-    </StyledButton>
-  )
-}
+const Button: React.ForwardRefExoticComponent<
+  Props & RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, Props>(
+  // https://github.com/yannickcr/eslint-plugin-react/issues/2760
+  // eslint-disable-next-line react/prop-types
+  ({ children, modifier = 'solid', type = 'button', ...buttonProps }, ref) => {
+    return (
+      <StyledButton type={type} modifier={modifier} {...buttonProps} ref={ref}>
+        {children}
+      </StyledButton>
+    )
+  },
+)
 
 export default Button
