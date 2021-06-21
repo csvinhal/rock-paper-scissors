@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Props as ScoreProps } from '../Score/Score'
+import Score from '../Score/Score'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const List = styled.div`
 `
 
 interface Props {
-  children: ReactElement<ScoreProps>
+  children: ReactElement<typeof Score>
 }
 
 const Header: React.FC<Props> = ({ children }: Props) => (

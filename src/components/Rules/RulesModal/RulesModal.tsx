@@ -106,11 +106,11 @@ const RulesModal: React.FC<Props> = ({ show, onClose }: Props) => {
       <StyledRuleModal>
         <TitleContainer>
           <Title id="rules_label">RULES</Title>
-          <div id="rules_desc" style={{ display: 'none' }}>
+          <div id="rules_desc" style={{ display: 'none' }} aria-hidden>
             <p>Rock beats Lizzard and Scissor</p>
             <p>Paper beats Rock and Spock</p>
             <p>Scissor beats Paper and Lizzard</p>
-            <p>Lizzard beats Spock and Paper</p>
+            <p>Lizard beats Spock and Paper</p>
             <p>Spock beats Scissor and Rock</p>
           </div>
         </TitleContainer>
