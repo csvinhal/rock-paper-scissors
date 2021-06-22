@@ -11,9 +11,8 @@ const StyledPortrait = styled.div<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
-  height: 7.75rem;
-  width: 7.75rem;
+  height: 6.5rem;
+  width: 6.5rem;
   border-radius: 50%;
   box-shadow: inset -1px -5px 0px 0px rgb(0 0 0 / 25%);
 
@@ -41,8 +40,8 @@ const PortraitContent = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${theme.colors.white};
-    height: 5.75rem;
-    width: 5.75rem;
+    height: 5rem;
+    width: 5rem;
     border-radius: 50%;
     box-shadow: inset 1px 5px 0px 0px rgb(0 0 0 / 25%);
   `}
