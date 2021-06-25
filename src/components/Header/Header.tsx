@@ -1,4 +1,3 @@
-import { ReactElement } from 'react'
 import styled from 'styled-components'
 import Score from '../Score/Score'
 
@@ -7,9 +6,10 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex: 1;
   padding: 1rem;
   border: 2px solid ${({ theme }) => theme.colors.grey};
-  border-radius: 4px;
+  border-radius: 16px;
 `
 
 const ItemText = styled.p`
@@ -21,11 +21,11 @@ const List = styled.div`
   margin-left: 1rem;
 `
 
-interface Props {
-  children: ReactElement<typeof Score>
+export interface Props {
+  scoreValue: number
 }
 
-const Header: React.FC<Props> = ({ children }: Props) => (
+const Header: React.FC<Props> = ({ scoreValue }: Props) => (
   <HeaderContainer>
     <List>
       <ItemText>ROCK</ItemText>
@@ -34,7 +34,7 @@ const Header: React.FC<Props> = ({ children }: Props) => (
       <ItemText>LIZZARD</ItemText>
       <ItemText>SPOCK</ItemText>
     </List>
-    {children}
+    <Score value={scoreValue} />
   </HeaderContainer>
 )
 

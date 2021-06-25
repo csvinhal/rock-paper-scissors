@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useCallback, useMemo } from 'react'
+import { KeyboardEvent, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import Hand from '../../Hand/Hand'
 import { IconType } from '../../Icon/Icon'
