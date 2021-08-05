@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import PickedHand, { Props } from '../components/PickedHand/PickedHand'
+import PickedHand, { Props } from '../components/organisms/PickedHand/PickedHand'
 
 export default {
   title: 'Components/Organism/PickedHand',

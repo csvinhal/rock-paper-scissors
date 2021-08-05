@@ -1,7 +1,7 @@
 import { KeyboardEvent, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
-import Hand from '../../Hand/Hand'
-import { IconType } from '../../Icon/Icon'
+import Hand from '../../../molecules/Hand/Hand'
+import { IconType } from '../../../atoms/Icon/Icon'
 
 interface Props {
   type: IconType

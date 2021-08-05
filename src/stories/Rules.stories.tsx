@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import Rules from '../components/Rules/Rules'
+import Rules from '../components/organisms/Rules/Rules'
 
 export default {
   title: 'Components/Organism/Rules',

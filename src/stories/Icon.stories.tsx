@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react'
-import Icon, { Props } from '../components/Icon/Icon'
+import Icon, { Props } from '../components/atoms/Icon/Icon'
 
 export default {
-  title: 'Components/Atomic/Icon',
+  title: 'Components/Atoms/Icon',
   component: Icon,
 } as Meta
 

@@ -1,5 +1,5 @@
-import Icon, { IconType } from '../Icon/Icon'
-import Portrait from '../Portrait/Portrait'
+import Icon, { IconType } from '../../atoms/Icon/Icon'
+import Portrait from '../../atoms/Portrait/Portrait'
 
 export interface Props {
   type: IconType

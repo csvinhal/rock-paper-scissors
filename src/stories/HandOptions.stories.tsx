@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import HandOptions, { Props } from '../components/HandOptions/HandOptions'
+import HandOptions, { Props } from '../components/organisms/HandOptions/HandOptions'
 
 export default {
   title: 'Components/Organism/HandOptions',

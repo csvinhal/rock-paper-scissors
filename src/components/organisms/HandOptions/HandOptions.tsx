@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Pentagon from '../../assets/bg-pentagon.svg'
-import { IconType } from '../Icon/Icon'
+import Pentagon from '../../../assets/bg-pentagon.svg'
+import { IconType } from '../../atoms/Icon/Icon'
 import HandContainer from './HandContainer/HandContainer'
 
 const StyledHandOptions = styled.div`

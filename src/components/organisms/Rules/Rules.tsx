@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
-import RulesButton from './RulesButton/RulesButton'
-import RulesModal from './RulesModal/RulesModal'
+import RulesButton from '../../molecules/RulesButton/RulesButton'
+import RulesModal from '../../molecules/RulesModal/RulesModal'
 
 const Rules: React.FC = () => {
   const [show, setShow] = useState<boolean>(false)

@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import ImageRules from '../../../assets/image-rules-bonus.svg'
 import IconClose from '../../../assets/icon-close.svg'
-import Button from '../../Button/Button'
-import Modal from '../../Modal/Modal'
+import Button from '../../atoms/Button/Button'
+import Modal from '../../atoms/Modal/Modal'
 
 const StyledRuleModal = styled.div`
   height: 100%;

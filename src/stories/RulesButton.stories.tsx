@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import RulesButton, { Props } from '../components/Rules/RulesButton/RulesButton'
+import RulesButton, { Props } from '../components/molecules/RulesButton/RulesButton'
 
 export default {
   title: 'Components/Molecules/RulesButton',

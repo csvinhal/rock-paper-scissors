@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
 import styled from 'styled-components'
-import Button from '../../Button/Button'
+import Button from '../../atoms/Button/Button'
 
 const StyledButton = styled(Button)`
   width: 7rem;

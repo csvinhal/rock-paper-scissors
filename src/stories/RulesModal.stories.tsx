@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import RulesModal, { Props } from '../components/Rules/RulesModal/RulesModal'
+import RulesModal, { Props } from '../components/molecules/RulesModal/RulesModal'
 
 export default {
   title: 'Components/Molecules/RulesModal',

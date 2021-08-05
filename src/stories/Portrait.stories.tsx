@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react'
-import Portrait, { Props } from '../components/Portrait/Portrait'
+import Portrait, { Props } from '../components/atoms/Portrait/Portrait'
 
 export default {
-  title: 'Components/Atomic/Portrait',
+  title: 'Components/Atoms/Portrait',
   component: Portrait,
 } as Meta
 

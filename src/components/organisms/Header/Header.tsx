@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Score from '../Score/Score'
+import Score from '../../atoms/Score/Score'
 
 const HeaderContainer = styled.div`
   display: flex;

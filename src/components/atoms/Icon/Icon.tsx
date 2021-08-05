@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import LizardIcon from '../../assets/icon-lizard.svg'
-import PaperIcon from '../../assets/icon-paper.svg'
-import RockIcon from '../../assets/icon-rock.svg'
-import ScissorIcon from '../../assets/icon-scissors.svg'
-import SpockIcon from '../../assets/icon-spock.svg'
+import LizardIcon from '../../../assets/icon-lizard.svg'
+import PaperIcon from '../../../assets/icon-paper.svg'
+import RockIcon from '../../../assets/icon-rock.svg'
+import ScissorIcon from '../../../assets/icon-scissors.svg'
+import SpockIcon from '../../../assets/icon-spock.svg'
 
 export type IconType = 'rock' | 'paper' | 'scissors' | 'lizard' | 'spock'
 

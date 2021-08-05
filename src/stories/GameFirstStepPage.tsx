@@ -1,7 +1,7 @@
-import Header from '../components/Header/Header'
-import HandOptionsStories from '../components/HandOptions/HandOptions'
+import Header from '../components/organisms/Header/Header'
+import HandOptionsStories from '../components/organisms/HandOptions/HandOptions'
 import styled from 'styled-components'
-import Rules from '../components/Rules/Rules'
+import Rules from '../components/organisms/Rules/Rules'
 
 export interface Props {
   scoreValue: number

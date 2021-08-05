@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import EmptyPortrait from '../EmptyPortrait/EmptyPortrait'
-import Hand from '../Hand/Hand'
-import { IconType } from '../Icon/Icon'
+import EmptyPortrait from '../../atoms/EmptyPortrait/EmptyPortrait'
+import Hand from '../../molecules/Hand/Hand'
+import { IconType } from '../../atoms/Icon/Icon'
 
 const StyledPickedHand = styled.div`
   display: flex;
