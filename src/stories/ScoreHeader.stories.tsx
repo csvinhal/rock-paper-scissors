@@ -1,13 +1,13 @@
 import { Story, Meta } from '@storybook/react'
-import Header, { Props } from '../components/organisms/Header/Header'
+import ScoreHeader, { Props } from '../components/organisms/ScoreHeader/Header'
 
 export default {
-  title: 'Components/Organism/Header',
-  component: Header,
+  title: 'Components/Organism/ScoreHeader',
+  component: ScoreHeader,
 } as Meta
 
 const Template: Story<Props> = args => (
-  <Header {...args} />
+  <ScoreHeader {...args} />
 )
 
 export const Default = Template.bind({})

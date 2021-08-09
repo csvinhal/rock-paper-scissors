@@ -27,12 +27,12 @@ export interface Props {
 
 const Header: React.FC<Props> = ({ scoreValue }: Props) => (
   <HeaderContainer>
-    <List>
-      <ItemText>ROCK</ItemText>
-      <ItemText>PAPER</ItemText>
-      <ItemText>SCISSOR</ItemText>
-      <ItemText>LIZZARD</ItemText>
-      <ItemText>SPOCK</ItemText>
+    <List role="link">
+      <ItemText role="listitem">ROCK</ItemText>
+      <ItemText role="listitem">PAPER</ItemText>
+      <ItemText role="listitem">SCISSOR</ItemText>
+      <ItemText role="listitem">LIZZARD</ItemText>
+      <ItemText role="listitem">SPOCK</ItemText>
     </List>
     <Score value={scoreValue} />
   </HeaderContainer>
