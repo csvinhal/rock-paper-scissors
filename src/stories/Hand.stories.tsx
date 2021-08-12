@@ -14,4 +14,5 @@ export const Default = Template.bind({})
 
 Default.args = {
   type: 'rock',
+  size: 'md'
 }

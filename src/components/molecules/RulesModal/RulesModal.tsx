@@ -80,7 +80,7 @@ const RulesImage = styled.img`
   grid-area: rules;
 `
 
-interface Props {
+export interface Props {
   show: boolean
   onClose: () => void
 }

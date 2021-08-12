@@ -1,5 +1,7 @@
 import { Meta, Story } from '@storybook/react'
-import PickedHand, { Props } from '../components/organisms/PickedHand/PickedHand'
+import PickedHand, {
+  Props,
+} from '../components/organisms/PickedHand/PickedHand'
 
 export default {
   title: 'Components/Organism/PickedHand',
@@ -14,4 +16,5 @@ export const Default = Template.bind({})
 
 Default.args = {
   label: 'You picked',
+  selected: undefined,
 }

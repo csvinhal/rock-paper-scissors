@@ -1,23 +1,35 @@
+import styled from 'styled-components'
+import Content from './components/Content/Content'
+import Footer from './components/templates/Footer/Footer'
+import Header from './components/templates/Header/Header'
 import ThemeProvider from './components/ThemeProvider/ThemeProvider'
+
+const StyledPage = styled.div`
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const StyledMain = styled.main`
+  flex: 1;
+  width: 100%;
+`
 
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <StyledPage>
+        <Header />
+
+        <StyledMain>
+          <Content />
+        </StyledMain>
+
+        <Footer />
+      </StyledPage>
     </ThemeProvider>
   )
 }

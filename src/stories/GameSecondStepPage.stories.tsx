@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/react'
-import GameFirstStepPage, { Props } from './GameFirstStepPage'
+import GameSecondStepPage, { Props } from './GameSecondStepPage'
 
 export default {
-  title: 'Components/Pages/GameFirstStep',
-  component: GameFirstStepPage,
+  title: 'Components/Pages/GameSecondStepPage',
+  component: GameSecondStepPage,
 } as Meta
 
 const Template: Story<Props> = args => {
-  return <GameFirstStepPage {...args} />
+  return <GameSecondStepPage {...args} />
 }
 
 export const Default = Template.bind({})

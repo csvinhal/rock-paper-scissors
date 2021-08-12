@@ -8,7 +8,6 @@ const StyledPickedHand = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 9rem;
 
   @media only screen and (min-width: 768px) {
     flex-direction: column-reverse;
@@ -17,6 +16,11 @@ const StyledPickedHand = styled.div`
 
 const Label = styled.p`
   text-transform: uppercase;
+  margin: 1rem 0 0;
+
+  @media only screen and (min-width: 768px) {
+    margin: 0 0 1rem;
+  }
 `
 
 export interface Props {
@@ -25,7 +29,11 @@ export interface Props {
 }
 
 const PickedHand: React.FC<Props> = ({ label, selected }: Props) => {
-  const children = selected ? <Hand type={selected} /> : <EmptyPortrait />
+  const children = selected ? (
+    <Hand type={selected} size="lg" />
+  ) : (
+    <EmptyPortrait />
+  )
   return (
     <StyledPickedHand aria-labelledby="picked-label">
       {children}

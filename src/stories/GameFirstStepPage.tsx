@@ -1,14 +1,13 @@
-import Header from '../components/organisms/Header/Header'
-import HandOptionsStories from '../components/organisms/HandOptions/HandOptions'
 import styled from 'styled-components'
-import Rules from '../components/organisms/Rules/Rules'
+import HandOptions from '../components/organisms/HandOptions/HandOptions'
+import Footer from '../components/templates/Footer/Footer'
+import Header from '../components/templates/Header/Header'
 
 export interface Props {
   scoreValue: number
 }
 
 const StyledPage = styled.div`
-  margin: -1rem;
   height: 100vh;
   padding: 1rem;
   display: flex;
@@ -22,32 +21,14 @@ const StyledMain = styled.main`
   max-width: 580px;
 `
 
-const StyledHeader = styled.header`
-  width: 100%;
-  max-width: 580px;
-`
-
-const StyledFooter = styled.footer`
-  margin: 0 auto;
-
-  @media only screen and (min-width: 768px) {
-    margin: 0 0 0 auto;
-  }
-`
-
 const GameFirstStepPage = ({ scoreValue }: Props) => {
   return (
     <StyledPage>
-      <StyledHeader>
-        <Header scoreValue={scoreValue} />
-      </StyledHeader>
+      <Header />
       <StyledMain>
-        <HandOptionsStories onClick={() => {}} />
+        <HandOptions onClick={() => {}} />
       </StyledMain>
-      <StyledFooter>
-        <Rules />
-      </StyledFooter>
-
+      <Footer />
     </StyledPage>
   )
 }

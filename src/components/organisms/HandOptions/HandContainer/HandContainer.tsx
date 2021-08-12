@@ -1,7 +1,7 @@
-import { KeyboardEvent, useCallback, useMemo } from 'react'
+import { KeyboardEvent, useMemo } from 'react'
 import styled from 'styled-components'
-import Hand from '../../../molecules/Hand/Hand'
 import { IconType } from '../../../atoms/Icon/Icon'
+import Hand from '../../../molecules/Hand/Hand'
 
 interface Props {
   type: IconType
@@ -60,17 +60,14 @@ const HandContainer: React.FC<Props> = ({ type, onClick }: Props) => {
     }
   }, [type])
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      const isSpace = e.key === 'Space' || e.keyCode === 32
-      const isEnter = e.key === 'Enter' || e.keyCode === 13
+  const onKeyDown = (e: KeyboardEvent) => {
+    const isSpace = e.key === 'Space' || e.keyCode === 32
+    const isEnter = e.key === 'Enter' || e.keyCode === 13
 
-      if (isSpace || isEnter) {
-        onClick(type)
-      }
-    },
-    [type, onClick],
-  )
+    if (isSpace || isEnter) {
+      onClick(type)
+    }
+  }
 
   return (
     <StyledContainer
@@ -84,7 +81,7 @@ const HandContainer: React.FC<Props> = ({ type, onClick }: Props) => {
       <p id={`hand_${type}`} style={{ display: 'none' }} aria-hidden>
         {label}
       </p>
-      <Hand type={type} />
+      <Hand type={type} size="md" />
     </StyledContainer>
   )
 }

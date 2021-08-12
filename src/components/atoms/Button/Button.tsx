@@ -93,6 +93,10 @@ const StyledButton = styled.button<Props>`
         `
     }
   }};
+
+  @media only screen and (min-width: 768px) {
+    height: auto;
+  }
 `
 
 const Button: React.ForwardRefExoticComponent<
