@@ -18,7 +18,7 @@ const StyledContainer = styled.div<Pick<Props, 'type'>>`
         return 'top: 0rem;'
       case 'paper':
         return `
-          top: 6.5rem;
+          top: 7rem;
           right: 0rem;
         `
       case 'rock':
@@ -33,7 +33,7 @@ const StyledContainer = styled.div<Pick<Props, 'type'>>`
         `
       case 'spock':
         return `
-          top: 6.5rem;
+          top: 7rem;
           left: 0rem;
         `
       default:
@@ -43,12 +43,13 @@ const StyledContainer = styled.div<Pick<Props, 'type'>>`
 `
 
 const HandContainer: React.FC<Props> = ({ type, onClick }: Props) => {
+  const ariaId = `hand_${type}`
   const label = useMemo(() => {
     switch (type) {
       case 'scissors':
         return 'Scissors'
       case 'paper':
-        return 'Pape'
+        return 'Paper'
       case 'rock':
         return 'Rock'
       case 'lizard':
@@ -74,12 +75,12 @@ const HandContainer: React.FC<Props> = ({ type, onClick }: Props) => {
       type={type}
       role="button"
       tabIndex={0}
-      aria-labelledby={`hand_${type}`}
+      aria-labelledby={ariaId}
       onClick={() => onClick(type)}
       onKeyDown={onKeyDown}
     >
-      <p id={`hand_${type}`} style={{ display: 'none' }} aria-hidden>
-        {label}
+      <p id={ariaId} style={{ display: 'none' }} aria-hidden>
+        Select {label}
       </p>
       <Hand type={type} size="md" />
     </StyledContainer>
