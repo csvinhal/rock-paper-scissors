@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useGameScore } from '../../../context/scoreContext'
 import ScoreHeader from '../../organisms/ScoreHeader/ScoreHeader'
 
 const StyledHeader = styled.header`
@@ -7,9 +8,10 @@ const StyledHeader = styled.header`
 `
 
 const Header: React.FC = () => {
+  const { score } = useGameScore()
   return (
     <StyledHeader>
-      <ScoreHeader scoreValue={10} />
+      <ScoreHeader scoreValue={score} />
     </StyledHeader>
   )
 }

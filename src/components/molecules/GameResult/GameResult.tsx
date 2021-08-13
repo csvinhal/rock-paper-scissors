@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Result } from '../../../hooks/useGameLogic'
 import Button from '../../atoms/Button/Button'
 
 const StyledGameResult = styled.div`
@@ -18,7 +19,7 @@ const StyledPlayAgain = styled(Button)`
 `
 
 export interface Props {
-  result: 'win' | 'loose' | 'tie'
+  result: Result
   onPlayAgain: () => void
 }
 

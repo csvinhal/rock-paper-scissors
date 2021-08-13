@@ -3,6 +3,7 @@ import { IconType } from '../components/atoms/Icon/Icon'
 import Rules from '../components/organisms/Rules/Rules'
 import Header from '../components/templates/Header/Header'
 import PlayersHand from '../components/templates/PlayersHand/PlayersHand'
+import { Result } from '../hooks/useGameLogic'
 
 const StyledPage = styled.div`
   margin: -1rem;
@@ -31,9 +32,10 @@ export interface Props {
   scoreValue: number
   playerHand: IconType
   houseHand: IconType
+  result: Result
 }
 
-const GameSecondStepPage = ({ playerHand, houseHand }: Props) => {
+const GameSecondStepPage = ({ playerHand, houseHand, result }: Props) => {
   return (
     <StyledPage>
       <Header />
@@ -42,6 +44,7 @@ const GameSecondStepPage = ({ playerHand, houseHand }: Props) => {
           houseHand={houseHand}
           playerHand={playerHand}
           onPlayAgain={() => {}}
+          result={result}
         />
       </StyledMain>
       <StyledFooter>
