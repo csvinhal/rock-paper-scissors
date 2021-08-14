@@ -3,6 +3,7 @@ import Content from './components/Content/Content'
 import Footer from './components/templates/Footer/Footer'
 import Header from './components/templates/Header/Header'
 import ThemeProvider from './components/ThemeProvider/ThemeProvider'
+import { ScoreProvider } from './context/scoreContext'
 
 const StyledPage = styled.div`
   height: 100vh;
@@ -21,15 +22,15 @@ const StyledMain = styled.main`
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <StyledPage>
-        <Header />
-
-        <StyledMain>
-          <Content />
-        </StyledMain>
-
-        <Footer />
-      </StyledPage>
+      <ScoreProvider>
+        <StyledPage>
+          <Header />
+          <StyledMain>
+            <Content />
+          </StyledMain>
+          <Footer />
+        </StyledPage>
+      </ScoreProvider>
     </ThemeProvider>
   )
 }

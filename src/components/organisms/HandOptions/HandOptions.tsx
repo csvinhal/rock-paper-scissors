@@ -20,10 +20,12 @@ const StyledHandOptions = styled.div`
 
 const BackgroundImg = styled.img`
   width: 17.5rem;
+  height: 20rem;
   padding-top: 3rem;
 
   @media only screen and (min-width: 768px) {
-    width: auto;
+    height: 25rem;
+    width: 22.5rem;
   }
 `
 

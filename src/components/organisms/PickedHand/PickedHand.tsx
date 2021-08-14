@@ -14,7 +14,25 @@ const StyledPickedHand = styled.div`
   }
 `
 
-const Label = styled.p`
+const StyledContent = styled.div`
+  position: relative;
+  height: 9.5rem;
+  width: 9.5rem;
+`
+
+const StyledHandContainer = styled.div<{ show: boolean }>`
+  position: absolute;
+  opacity: ${({ show }) => (show ? '1' : '0')};
+  transition: opacity 0.3s ease-in-out;
+`
+
+const StyledEmptyPortraitContainer = styled.div<{ show: boolean }>`
+  position: absolute;
+  opacity: ${({ show }) => (show ? '1' : '0')};
+  transition: opacity 0.3s ease-in-out;
+`
+
+const StyledLabel = styled.p`
   text-transform: uppercase;
   margin: 1rem 0 0;
 
@@ -29,15 +47,17 @@ export interface Props {
 }
 
 const PickedHand: React.FC<Props> = ({ label, selected }: Props) => {
-  const children = selected ? (
-    <Hand type={selected} size="lg" />
-  ) : (
-    <EmptyPortrait />
-  )
   return (
     <StyledPickedHand aria-labelledby="picked-label">
-      {children}
-      <Label id="picked-label">{label}</Label>
+      <StyledContent>
+        <StyledHandContainer show={!!selected}>
+          <Hand type={selected as IconType} size="lg" />
+        </StyledHandContainer>
+        <StyledEmptyPortraitContainer show={!selected}>
+          <EmptyPortrait />
+        </StyledEmptyPortraitContainer>
+      </StyledContent>
+      <StyledLabel id="picked-label">{label}</StyledLabel>
     </StyledPickedHand>
   )
 }

@@ -27,7 +27,7 @@ export interface Props {
 
 const Header: React.FC<Props> = ({ scoreValue }: Props) => (
   <HeaderContainer>
-    <List role="link">
+    <List role="list">
       <ItemText role="listitem">ROCK</ItemText>
       <ItemText role="listitem">PAPER</ItemText>
       <ItemText role="listitem">SCISSOR</ItemText>

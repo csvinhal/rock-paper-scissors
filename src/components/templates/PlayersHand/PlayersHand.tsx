@@ -1,8 +1,8 @@
 import styled from 'styled-components'
+import { Result } from '../../../hooks/useGameLogic'
 import { IconType } from '../../atoms/Icon/Icon'
 import GameResult from '../../molecules/GameResult/GameResult'
 import PickedHand from '../../organisms/PickedHand/PickedHand'
-import { useGameResult } from './hooks/useGameResult'
 
 const StyledPlayersHand = styled.div`
   display: grid;
@@ -47,24 +47,23 @@ const StyledHouse = styled.div`
 export interface Props {
   playerHand: IconType
   houseHand: IconType
+  result: Result | undefined
   onPlayAgain: () => void
 }
 
 const PlayersHand: React.FC<Props> = ({
   playerHand,
   houseHand,
+  result,
   onPlayAgain,
 }: Props) => {
-  const result = useGameResult(playerHand, houseHand)
-  const gameEnded = !!(playerHand && houseHand)
-
   return (
     <StyledPlayersHand>
       <StyledPlayer>
         <PickedHand label="You picked" selected={playerHand} />
       </StyledPlayer>
-      <StyledGameResult show={gameEnded}>
-        <GameResult result={result} onPlayAgain={onPlayAgain} />
+      <StyledGameResult show={!!result}>
+        <GameResult result={result as Result} onPlayAgain={onPlayAgain} />
       </StyledGameResult>
       <StyledHouse>
         <PickedHand label="The house picked" selected={houseHand} />

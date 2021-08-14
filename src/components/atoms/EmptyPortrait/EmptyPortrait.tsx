@@ -4,7 +4,7 @@ const StyledEmptyPortrait = styled.div`
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
-  margin: 1rem;
+  margin: 1.25rem;
   ${({ theme }) => `background-color: ${theme.colors.spaceCadet}`}
 `
 
